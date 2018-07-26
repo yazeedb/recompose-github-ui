@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { componentFromStream, createEventHandler } from 'recompose';
-import { merge } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { map, startWith, tap } from 'rxjs/operators';
 import './observableConfig';
 import './styles.css';
 
 const App = componentFromStream(prop$ => {
   const { handler, stream } = createEventHandler();
+  const value$ = stream.pipe(
+    map(e => e.target.value),
+    startWith('')
+  );
 
-  return merge(prop$, stream).pipe(
-    tap((...args) => console.warn(args)),
+  return combineLatest(prop$, value$).pipe(
+    tap(console.warn),
     map(() => (
       <div>
         <input
