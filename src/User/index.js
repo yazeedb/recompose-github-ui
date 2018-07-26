@@ -38,7 +38,7 @@ const User = componentFromStream(prop$ => {
   );
 
   return merge(loading$, getUser$).pipe(
-    map(result => (result === true ? <p>Loading...</p> : result))
+    map(result => (result === true ? <h3>Loading...</h3> : result))
   );
 });
 
