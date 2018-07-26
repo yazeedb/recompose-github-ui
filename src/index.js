@@ -25,4 +25,4 @@ const App = componentFromStream(prop$ => {
 });
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<App a="beef" />, rootElement);
+ReactDOM.render(<App />, rootElement);
