@@ -1,20 +1,18 @@
 import React from 'react';
 import { componentFromStream } from 'recompose';
+import { of } from 'rxjs';
 import {
   catchError,
   debounceTime,
   filter,
   map,
   pluck,
-  switchMap,
-  tap
+  switchMap
 } from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
 import Error from '../Error';
 import Component from './Component';
 import './User.css';
-
-import { of } from 'rxjs';
 
 const formatUrl = user => `https://api.github.com/users/${user}`;
 

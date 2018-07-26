@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Error = ({ response, status }) => (
-  <div>
+  <div className="error">
     <h2>Oops!</h2>
-    <p>Something went wrong! Please try searching again.</p>
     <b>
       {status}: {response.message}
     </b>
+    <p>Please try searching again.</p>
   </div>
 );
 

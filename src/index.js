@@ -17,7 +17,7 @@ const App = componentFromStream(prop$ => {
   return combineLatest(prop$, value$).pipe(
     map(([props, value]) => (
       <div>
-        <input onChange={handler} placeholder="Enter username" />
+        <input onChange={handler} placeholder="GitHub username" />
         <User user={value} />
       </div>
     ))

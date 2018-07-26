@@ -8,14 +8,14 @@ const Component = ({
   public_gists,
   followers
 }) => (
-  <div class="github-card user-card">
-    <div class="header User" />
-    <a class="avatar" href={`https://github.com/${login}`}>
+  <div className="github-card user-card">
+    <div className="header User" />
+    <a className="avatar" href={`https://github.com/${login}`}>
       <img src={`${avatar_url}&amp;s=80`} alt={name} />
     </a>
-    <div class="content">
+    <div className="content">
       <h1>{name}</h1>
-      <ul class="status">
+      <ul className="status">
         <li>
           <a href={`https://github.com/${login}?tab=repositories`}>
             <strong>{public_repos}</strong>Repos
