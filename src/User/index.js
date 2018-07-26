@@ -1,14 +1,10 @@
 import React from 'react';
 import { componentFromStream } from 'recompose';
 import {
-  catchError,
   debounceTime,
-  delay,
   filter,
   map,
-  pluck,
-  switchMap,
-  tap
+  pluck
 } from 'rxjs/operators';
 import Component from './Component';
 import './User.css';
@@ -22,6 +18,8 @@ const User = componentFromStream(prop$ => {
       <h3>{user}</h3>
     ))
   );
+
+  return getUser$;
 });
 
 export default User;

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { componentFromStream, createEventHandler } from 'recompose';
 import { combineLatest } from 'rxjs';
 import { map, startWith, tap } from 'rxjs/operators';
+import User from './User';
 import './observableConfig';
 import './styles.css';
 
@@ -15,12 +16,14 @@ const App = componentFromStream(prop$ => {
 
   return combineLatest(prop$, value$).pipe(
     tap(console.warn),
-    map(() => (
+    map(([props, value]) => (
       <div>
         <input
           onChange={handler}
           placeholder="GitHub username"
         />
+
+        <User user={value} />
       </div>
     ))
   )
