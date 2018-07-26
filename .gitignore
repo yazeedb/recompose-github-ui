@@ -1,2 +1,4 @@
 *.gif
 *.mov
+node_modules
+yarn.lock
