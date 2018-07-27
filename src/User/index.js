@@ -16,6 +16,7 @@ const User = componentFromStream(prop$ => {
     debounceTime(1000),
     pluck('user'),
     filter(user => user && user.length),
+    map(formatUrl),
     map(user => (
       <h3>{user}</h3>
     ))
