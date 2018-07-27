@@ -5,6 +5,7 @@ body {
   font-family: 'Lucida Grande', 'Lucida Sans', Geneva, Verdana, sans-serif;
   overflow: hidden;
 }
+
 body.ready {
   border: 1px solid #eee;
   border-radius: 5px;
@@ -40,6 +41,7 @@ body.ready {
   text-decoration: none;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
 }
+
 .github-card .avatar:hover {
   -webkit-transform: rotate(45deg);
 }
@@ -63,56 +65,69 @@ body.ready {
   border-bottom: 1px solid #eee;
   zoom: 1;
 }
+
 .github-card ul:after {
   display: block;
   content: '';
   clear: both;
 }
+
 .github-card .status li {
   float: left;
   padding: 8px 0;
   box-shadow: 1px 0 0 #eee;
 }
+
 .github-card .status li:last-of-type {
   box-shadow: none;
 }
+
 .github-card .status strong {
   display: block;
   color: #292f33;
   font-size: 16px;
   line-height: 1.6;
 }
+
 .github-card .status a {
   color: #707070;
   text-decoration: none;
 }
+
 .github-card .status a:hover {
   color: #4183c4;
 }
+
 .user-card .header {
   background-image: url('https://cdn-images-1.medium.com/max/2000/1*19LWzzJJDPqGq67Vyd0EjQ.jpeg');
 }
+
 .user-card .User {
   background-position: top left;
 }
+
 .user-card .Organization {
   background-position: top right;
 }
+
 .user-card .avatar {
   margin-top: -40px;
   border: 3px solid #fff;
   position: relative;
 }
+
 .user-card img {
   display: block;
   width: 80px;
   height: 80px;
 }
+
 .user-card h1 {
   letter-spacing: -0.06em;
   margin: 16px 0 20px;
   line-height: 1;
 }
+
 .user-card .status li {
   width: 33%;
 }
