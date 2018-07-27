@@ -9,6 +9,8 @@ import {
 import Component from './Component';
 import './User.css';
 
+const formatUrl = user => `https://api.github.com/users/${user}`;
+
 const User = componentFromStream(prop$ => {
   const getUser$ = prop$.pipe(
     debounceTime(1000),
