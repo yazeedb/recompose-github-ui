@@ -2,6 +2,7 @@ import React from 'react';
 import { componentFromStream } from 'recompose';
 import { ajax } from 'rxjs/ajax';
 import {
+  catchError,
   debounceTime,
   filter,
   map,
@@ -22,7 +23,8 @@ const User = componentFromStream(prop$ => {
     switchMap(url =>
       ajax(url).pipe(
         pluck('response'),
-        map(Component)
+        map(Component),
+        catchError(({ response }) => alert(response.message))
       )
     )
   );
