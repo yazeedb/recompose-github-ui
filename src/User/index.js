@@ -1,10 +1,12 @@
 import React from 'react';
 import { componentFromStream } from 'recompose';
+import { ajax } from 'rxjs/ajax';
 import {
   debounceTime,
   filter,
   map,
-  pluck
+  pluck,
+  switchMap
 } from 'rxjs/operators';
 import Component from './Component';
 import './User.css';
@@ -17,9 +19,12 @@ const User = componentFromStream(prop$ => {
     pluck('user'),
     filter(user => user && user.length),
     map(formatUrl),
-    map(user => (
-      <h3>{user}</h3>
-    ))
+    switchMap(url =>
+      ajax(url).pipe(
+        pluck('response'),
+        map(Component)
+      )
+    )
   );
 
   return getUser$;
