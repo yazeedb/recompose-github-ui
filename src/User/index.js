@@ -1,5 +1,6 @@
 import React from 'react';
 import { componentFromStream } from 'recompose';
+import { of } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import {
   catchError,
@@ -9,6 +10,7 @@ import {
   pluck,
   switchMap
 } from 'rxjs/operators';
+import Error from '../Error';
 import Component from './Component';
 import './User.css';
 
@@ -24,7 +26,7 @@ const User = componentFromStream(prop$ => {
       ajax(url).pipe(
         pluck('response'),
         map(Component),
-        catchError(({ response }) => alert(response.message))
+        catchError(error => of(<Error {...error} />))
       )
     )
   );
