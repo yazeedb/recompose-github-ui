@@ -38,9 +38,7 @@ const User = componentFromStream(prop$ => {
     )
   );
 
-  return getUser$.pipe(
-    map(result => (result === true ? <h3>Loading...</h3> : result))
-  );
+  return getUser$;
 });
 
 export default User;
